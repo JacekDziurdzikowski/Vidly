@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
@@ -16,6 +17,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.BirthDate)
         @Html.TextBoxFor(m => m.Customer.BirthDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.BirthDate)
     </div>
     <div class="checkbox">
         <label>
@@ -33,4 +35,10 @@
     <div class="form-group">
         @Html.HiddenFor(m => m.Customer.Id)
     </div>
+    @Html.AntiForgeryToken();
+
+    @section scripts
+    {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 }

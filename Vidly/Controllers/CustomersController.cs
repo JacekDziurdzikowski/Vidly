@@ -71,7 +71,9 @@ namespace Vidly.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 //przeslanie membershipTypes sluzy zapelnieniu DropDownList
-                MembershipTypes = membershipTypes
+                MembershipTypes = membershipTypes,
+                //przeslanie zainicjowanego customera sluzy wypelnieniu ukrytego inputa liczbą
+                Customer = new Customer()
             };
 
             return View("CustomerForm",viewModel);
@@ -80,6 +82,7 @@ namespace Vidly.Controllers
 
         //Ta akcja zapisuje uzytkownika do bazy danych
         [HttpPost]
+        [ValidateAntiForgeryToken] 
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)

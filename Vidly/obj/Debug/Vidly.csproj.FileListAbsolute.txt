@@ -94,3 +94,12 @@ C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenres.resources
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.ProbaMovieIndex.resources
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedGenreIdToMovieModel.resources
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedGenresDbSetToIdentityModels.resources
+C:\Projects\Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.dll
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Projects\Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.xml
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
+C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.beforewebapiproject.resources
+C:\Projects\Vidly\Vidly\bin\AutoMapper.dll
+C:\Projects\Vidly\Vidly\bin\AutoMapper.xml

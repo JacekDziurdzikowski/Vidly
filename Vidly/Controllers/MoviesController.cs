@@ -56,23 +56,59 @@ namespace Vidly.Controllers
 
         public ActionResult MovieForm(int id = 0)
         {
-            var viewModel = new MovieFormViewModel();
 
-            if (id != 0)
-                viewModel.Movie = _context.Movies.Single(m => m.Id == id);
             
-            var genres = _context.Genres.ToList();
-            viewModel.Genres = genres;
-            return View(viewModel);
+            if (id != 0)
+            {
+
+                var movie = _context.Movies.Single(m => m.Id == id);
+
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                viewModel.Id = id;
+
+                return View(viewModel);
+                
+            }
+
+            else
+            {
+                var viewModel = new MovieFormViewModel();
+                viewModel.Genres = _context.Genres.ToList();
+
+               return View(viewModel);
+            }
+
+
+            
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
-            if (movie.Id == 0)
+
+            if (!ModelState.IsValid)
             {
-                
-                _context.Movies.Add(movie);
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+
+                return View("MovieForm", viewModel);
+
             }
+
+
+                if (movie.Id == 0)
+                _context.Movies.Add(movie);
+
+            
+
             else
             {
                 var movieInDB = _context.Movies.Single(m => m.Id == movie.Id);
