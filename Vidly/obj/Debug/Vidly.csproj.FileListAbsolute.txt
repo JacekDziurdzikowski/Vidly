@@ -103,3 +103,6 @@ C:\Projects\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.beforewebapiproject.resources
 C:\Projects\Vidly\Vidly\bin\AutoMapper.dll
 C:\Projects\Vidly\Vidly\bin\AutoMapper.xml
+C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.CanManageMoviesUserAddedToDatabase.resources
+C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedDrivingLicenseToUserModelAndRegisterViewModel.resources
+C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.ChangedDrivingLicenseFieldInRegisterViewModelToProperty.resources

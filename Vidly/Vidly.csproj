@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -220,6 +221,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
+    <Compile Include="DTOs\GenreDto.cs" />
+    <Compile Include="DTOs\MembershipTypeDto.cs" />
     <Compile Include="DTOs\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -280,6 +283,18 @@
     <Compile Include="Migrations\201701252026345_before web api project.Designer.cs">
       <DependentUpon>201701252026345_before web api project.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702010700485_CanManageMoviesUserAddedToDatabase.cs" />
+    <Compile Include="Migrations\201702010700485_CanManageMoviesUserAddedToDatabase.Designer.cs">
+      <DependentUpon>201702010700485_CanManageMoviesUserAddedToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702010819496_AddedDrivingLicenseToUserModelAndRegisterViewModel.cs" />
+    <Compile Include="Migrations\201702010819496_AddedDrivingLicenseToUserModelAndRegisterViewModel.Designer.cs">
+      <DependentUpon>201702010819496_AddedDrivingLicenseToUserModelAndRegisterViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702010832052_ChangedDrivingLicenseFieldInRegisterViewModelToProperty.cs" />
+    <Compile Include="Migrations\201702010832052_ChangedDrivingLicenseFieldInRegisterViewModelToProperty.Designer.cs">
+      <DependentUpon>201702010832052_ChangedDrivingLicenseFieldInRegisterViewModelToProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Controllers\API\CustomersController.cs" />
@@ -291,6 +306,7 @@
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieList.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\SaveChangesDebugger.cs" />
     <Compile Include="Startup.cs" />
@@ -539,10 +555,11 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\MoviesList.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyMoviesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -598,6 +615,15 @@
     <EmbeddedResource Include="Migrations\201701252026345_before web api project.resx">
       <DependentUpon>201701252026345_before web api project.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702010700485_CanManageMoviesUserAddedToDatabase.resx">
+      <DependentUpon>201702010700485_CanManageMoviesUserAddedToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702010819496_AddedDrivingLicenseToUserModelAndRegisterViewModel.resx">
+      <DependentUpon>201702010819496_AddedDrivingLicenseToUserModelAndRegisterViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702010832052_ChangedDrivingLicenseFieldInRegisterViewModelToProperty.resx">
+      <DependentUpon>201702010832052_ChangedDrivingLicenseFieldInRegisterViewModelToProperty.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -617,7 +643,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53851</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53851/</IISUrl>
+          <IISUrl>https://localhost:44309/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

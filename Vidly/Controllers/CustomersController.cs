@@ -37,11 +37,7 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
 
-
-           
-                
-
-            return View(customers);
+            return View();
            
         }
 
